@@ -3,6 +3,7 @@ Docker image to build knxd with all required dependencies on a raspberry pi. Tes
 
 The resulting packages are available in the 'packages' directory.
 ```
+sudo docker build -t knxd-build-docker-rpi .
 mkdir packages
-docker run -v `realpath packages`:/packages knxd-build-docker-rpi
+sudo docker run -v `realpath packages`:/packages knxd-build-docker-rpi
 ```
