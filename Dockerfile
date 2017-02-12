@@ -1,10 +1,7 @@
 FROM resin/rpi-raspbian:jessie
 
 RUN  apt-get update \
-  && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd
-#libpthsem-dev libpthsem20
-
-RUN apt-get install libev-dev
+  && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd apt-get install libev-dev
 
 RUN git clone https://github.com/knxd/knxd.git
 
