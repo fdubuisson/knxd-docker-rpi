@@ -6,6 +6,14 @@ RUN  apt-get update \
 
 COPY build.sh .
 
-VOLUME packages
+RUN apt-get install libev-dev
 
-CMD ["./build.sh"]
+RUN ./build.sh
+
+RUN dpkg -i /packages/libpthsem*.deb /packages/knxd_*.deb packages/knxd-tools_*.deb
+
+EXPOSE 6720
+
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["knxd"]
