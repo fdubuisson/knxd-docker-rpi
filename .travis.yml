@@ -8,7 +8,7 @@ script:
 # build image
 - docker build -t fdubuisson/knxd-build-rpi .
 # test image
-- docker run fdubuisson/knxd-build-rpi ls /packages
+- docker run fdubuisson/knxd-build-rpi knxd --version
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
