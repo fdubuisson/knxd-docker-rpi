@@ -4,13 +4,13 @@ RUN  apt-get update \
   && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd
 #libpthsem-dev libpthsem20
 
-COPY build.sh .
-
 RUN apt-get install libev-dev
 
-RUN ./build.sh
+RUN git clone https://github.com/knxd/knxd.git
+RUN cd knxd \
+ && dpkg-buildpackage -b -uc
 
-RUN dpkg -i /packages/libpthsem*.deb /packages/knxd_*.deb packages/knxd-tools_*.deb
+RUN dpkg -i knxd_*.deb knxd-tools_*.deb
 
 EXPOSE 6720
 
