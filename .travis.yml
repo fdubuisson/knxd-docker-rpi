@@ -1,0 +1,17 @@
+sudo: required
+services:
+- docker
+language: bash
+script:
+# prepare qemu
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# build image
+- docker build -t fdubuisson/knxd-build-rpi .
+# test image
+- docker run fdubuisson/knxd-build-rpi ls /packages
+# push image
+- >
+  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    docker push fdubuisson/knxd-build-rpi
+  fi
