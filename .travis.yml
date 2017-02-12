@@ -13,5 +13,8 @@ script:
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    TAG=$(docker run fdubuisson/knxd-build-rpi knxd --version | cut -d ' ' -f 2 | cut -d ':' -f 1)
+    docker tag fdubuisson/knxd-build-rpi fdubuisson/knxd-build-rpi:$TAG
+    docker push fdubuisson/knxd-build-rpi:$TAG
     docker push fdubuisson/knxd-build-rpi
   fi
