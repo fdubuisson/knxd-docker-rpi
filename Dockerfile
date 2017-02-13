@@ -8,8 +8,8 @@ RUN git clone https://github.com/knxd/knxd.git
 
 # PATCH: remove tests as they don't run well on travis
 RUN cd knxd \
- && echo "#!/bin/bash" > tools/test.sh \
  && git checkout ${KNXD_CHANGESET} \
+ && echo "#!/bin/bash" > tools/test.sh \
  && dpkg-buildpackage -b -uc
 
 RUN dpkg -i knxd_*.deb knxd-tools_*.deb
