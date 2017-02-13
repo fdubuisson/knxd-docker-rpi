@@ -1,5 +1,5 @@
-# knxd-build-docker-rpi
-Docker image to build knxd with all required dependencies on a raspberry pi. Tested on a raspi3/Jessie.
+# knxd-docker-rpi
+Docker image to build and run knxd with all required dependencies on a raspberry pi. Tested on a raspi3/Jessie.
 
 Just add parameters on the 'docker run' command; ex:
 ```
