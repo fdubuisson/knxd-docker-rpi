@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian:jessie
 
 RUN  apt-get update \
-  && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd libev-dev
+  && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd libev-dev cmake
 
 ENV KNXD_CHANGESET 4770a9f
 RUN git clone https://github.com/knxd/knxd.git
