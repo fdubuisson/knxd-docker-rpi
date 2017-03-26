@@ -3,7 +3,7 @@ FROM resin/rpi-raspbian:jessie
 RUN  apt-get update \
   && apt-get install git-core build-essential wget cdbs debhelper libusb-1.0-0-dev libsystemd-daemon-dev autotools-dev autoconf automake libtool pkg-config dh-systemd libev-dev
 
-ENV KNXD_CHANGESET 0cb873b
+ENV KNXD_CHANGESET 4770a9f
 RUN git clone https://github.com/knxd/knxd.git
 
 # PATCH: remove tests as they don't run well on travis
