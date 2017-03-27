@@ -8,7 +8,7 @@ script:
 # build image
 - docker build -t fdubuisson/knxd-rpi .
 # test image; the command exits with code 1 so grep is here to have a 'valid' command
-- docker run fdubuisson/knxd-rpi knxd --version | grep 'Usage: knxd configfile [main-section]'
+- docker run fdubuisson/knxd-rpi knxd --version | grep 'knxd configfile [main-section]'
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
