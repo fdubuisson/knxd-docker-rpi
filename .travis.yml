@@ -7,8 +7,8 @@ script:
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
 - docker build -t fdubuisson/knxd-rpi .
-# test image
-- docker run fdubuisson/knxd-rpi knxd --version
+# test image; the command exits with code 1 so grep is here to have a 'valid' command
+- docker run fdubuisson/knxd-rpi knxd --version | grep "Usage: knxd configfile [main-section]"
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
