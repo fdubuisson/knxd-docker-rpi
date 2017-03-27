@@ -7,13 +7,11 @@ script:
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
 - docker build -t fdubuisson/knxd-rpi .
-# test image; the command exits with code 1 so grep is here to have a 'valid' command
-- docker run fdubuisson/knxd-rpi knxd --version | grep 'knxd configfile [main-section]'
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    TAG=$(docker run fdubuisson/knxd-rpi knxd --version | cut -d ' ' -f 2 | cut -d ':' -f 1)
+    TAG=$(docker run fdubuisson/knxd-rpi knxd --version | head -n 1 | cut -d ' ' -f 2 | cut -d ':' -f 1)
     docker tag fdubuisson/knxd-rpi fdubuisson/knxd-rpi:$TAG
     docker push fdubuisson/knxd-rpi:$TAG
     docker push fdubuisson/knxd-rpi
