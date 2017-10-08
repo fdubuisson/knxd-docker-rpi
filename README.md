@@ -4,7 +4,7 @@ Docker image to build and run knxd with all required dependencies on a raspberry
 Just add parameters on the 'docker run' command; ex:
 ```
 sudo docker build -t knxd .
-sudo docker run knxd -i 6720 -b iptn:192.168.1.13
+sudo docker run --network=host knxd -e 0.0.1 -E 2.2.20:10 -RTS -i 6720 -b ipt:192.168.1.13
 ```
 
 Tools are also available:
