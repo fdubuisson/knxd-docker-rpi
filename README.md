@@ -1,4 +1,4 @@
-# knxd-docker-rpi [![Build Status](https://travis-ci.org/f-dubuisson/knxd-docker-rpi.png)](https://travis-ci.org/f-dubuisson/knxd-docker-rpi)
+# knxd-docker-rpi [![Build Status](https://travis-ci.org/fdubuisson/knxd-docker-rpi.png)](https://travis-ci.org/fdubuisson/knxd-docker-rpi)
 Docker image to build and run knxd with all required dependencies on a raspberry pi. Tested on a raspi3/Jessie.
 
 Just add parameters on the 'docker run' command; ex:
